@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_njm_kelompokbarang,access.njm.kelompokbarang,model_njm_kelompokbarang,,1,1,1,1
+access_njm_barang,access.njm.barang,model_njm_barang,,1,1,1,1
+access_njm_person,access.njm.person,model_njm_person,,1,1,1,1
+access_njm_kasir,access.njm.kasir,model_njm_kasir,,1,1,1,1
+access_njm_cleaningservice,access.njm.cleaningservice,model_njm_cleaningservice,,1,1,1,1
+access_njm_supplier,access.njm.access_njm_supplier,model_njm_supplier,,1,1,1,1
+access_njm_penjualan,access.njm.penjualan,model_njm_penjualan,,1,1,1,1
+access_njm_detailpenjualan,access.njm.detailpenjualan,model_njm_detailpenjualan,,1,1,1,1
+access_njm_barangdatang,access.njm.barangdatang,model_njm_barangdatang,,1,1,1,1

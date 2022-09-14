@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    
+    <!-- rukosme.rukos tree view -->
+    <record id="rukosme_kos_view_tree" model="ir.ui.view">
+        <field name="name">Daftar rukos</field>
+        <field name="model">rukosme.kos</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="kode_rukos" />
+                <field name="name" />
+                <field name="alamat" />
+                <field name="jml_lantai" />
+                <field name="jml_kamar" />
+                <field name="harga_sewa" />
+                <field name="tiperukos_ids" />
+                <field name="fasilitas" />
+                <field name="stok" />
+                <!-- <field name="kamar_id" /> -->
+            </tree>
+        </field>
+    </record>
+
+    <!-- rukosme.rukos form view -->
+    <record id="rukosme_kos_view_form" model="ir.ui.view">
+        <field name="name">Form Daftar Rukos</field>
+        <field name="model">rukosme.kos</field>
+        <field name="arch" type="xml">
+            <form string="rukos">
+                <sheet>
+                    <group name="rukos" string="Rukos">
+                        <field name="kode_rukos" />
+                        <field name="name" />
+                        <field name="alamat" />
+                        <field name="jml_lantai" />
+                        <field name="jml_kamar" />
+                        <field name="harga_sewa" />
+                        <field name="stok" />
+                    </group>
+
+                    <group name="tiperukos" string="Tipe Rukos">
+                        <field name="tiperukos_ids" />
+                    </group>
+
+                    <!-- <group name="kamar" string="Kamar Kos">
+                        <field name="kamar_id" />
+                    </group> -->
+
+                <group name="fasilitaRukos" string="Fasilitas Rukos">
+                        <field name="fasilitas" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- rukosme.rukos action window -->
+    <record id="rukosme_rukos_action" model="ir.actions.act_window">
+        <field name="name">Daftar Kos</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">rukosme.kos</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem
+        id="rukosme_rukos_menu_act"
+        name="Daftar Rukos"
+        parent="rukosme_rukos_menu_categ"
+        action="rukosme_rukos_action"
+        sequence="10"/>
+
+</odoo>

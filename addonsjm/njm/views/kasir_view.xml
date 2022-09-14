@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 31 Aug 2022 sesi 1 -->
+<odoo>
+
+    <!-- njm.kasir inherit tree view -->
+    <record id="njm_kasir_view_tree_inherit" model="ir.ui.view">
+        <field name="name">Daftar Kasir</field>
+        <field name="model">njm.kasir</field>
+        <field name="mode">primary</field>
+        <!-- kalau ga pake primary, dia sudah inherit -->
+        <field name="inherit_id" ref="njm_person_view_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="before">
+            <!-- //field di sini, berfungsi untuk menentukan letak dimana si tree viewnya (id_kasir) ini diletakkan
+            di sini, diletakkan sebelum (before) 'name' 
+            posisi (position) di dalam xpath ini ada before, after, inside, attribute, dll -->
+                <field name="id_kasir" />
+            </xpath>          
+        </field>
+    </record>
+
+    <!-- njm.kasir inherit form view -->
+    <record id="njm_kasir_view_form_inherit" model="ir.ui.view">
+        <field name="name">Form Kasir</field>
+        <field name="model">njm.kasir</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="njm_person_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//form//sheet//group[1]" position="before">
+            <!-- /form//sheet//group[1] diliat dari file person_view.xml baris ke 24-34
+            group nya itu diliat dari baris 26-29, dimana di situ terdapat 2 grup
+            jika ini ditaruh sebelum group 1, maka akan ditaruh sebelum group dengan string 'Nama' -->
+                <group name="id" string="ID">
+                    <field name="id_kasir" />
+                </group>
+            </xpath>
+            <xpath expr="//field[@name='alamat']" position="attributes">
+            <attribute name="string">Alamat</attribute>
+            </xpath>          
+        </field> 
+    </record>
+
+    <!-- njm.kasir action window -->
+    <record id="njm_kasir_action" model="ir.actions.act_window">
+        <field name="name">Kasir</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">njm.kasir</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This menu item must have a parent and an action -->
+    <menuitem
+        id="njm_kasir_menu_act"
+        name="Kasir"
+        parent="njm_pegawai_menu_categ"
+        action="njm_kasir_action"
+        sequence="10"/>
+</odoo>
+
+<!-- Lanjutannya ada di _manifest_.py baris 36 dan file menu.xml baris 17-22 
+lanjut lagi bikin file konsumen.py -->

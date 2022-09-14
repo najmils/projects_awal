@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- lanjutan 31 Aug 2022 sesi 1 -->
+<odoo>
+
+    <!-- res.partner inherit tree view -->
+    <record id="res_partner_member_view_tree_inherit" model="ir.ui.view">
+        <field name="name">res.partner.inherit.view.tree</field>
+        <field name="model">res.partner</field>
+        <field name="mode">extension</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="poin" />
+                <field name="level" />
+            </xpath>   
+        </field>
+    </record>
+
+    <record id="res_partner_konsumen_view_form_inherit" model="ir.ui.view">
+        <field name="name">res.partner.inherit.view.form</field>
+        <field name="model">res.partner</field>
+        <field name="mode">extension</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="poin" />
+                <field name="level" />
+            </xpath>
+        </field>
+    </record>
+
+    <!-- res.partner action window -->
+    <record id="res_partner_member_action" model="ir.actions.act_window">
+        <field name="name">Member</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <menuitem
+        id="member_view_menu_act"
+        name="Member"
+        parent="njm_menu_root"
+        action="res_partner_member_action"
+        sequence="40"/>
+
+</odoo>

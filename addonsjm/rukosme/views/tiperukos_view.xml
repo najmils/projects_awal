@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- rukosme.kelompokbarang tree view -->
+    <record id="rukosme_tiperukos_view_tree" model="ir.ui.view">
+        <field name="name">rukosme.tiperukos.view.tree</field>
+        <field name="model">rukosme.tiperukos</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="kode_tipe"/>
+                <field name="jml_kos" />
+                <field name="rukos_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- rukosme.kelompokbarang form view -->
+    <record id="rukosme_tiperukos_view_form" model="ir.ui.view">
+        <field name="name">rukosme.tiperukos.view.form</field>
+        <field name="model">rukosme.tiperukos</field>
+        <field name="arch" type="xml">
+            <form string="Tipe Kos">
+                <sheet>
+                    <group name="tipe" string="Tipe Kos">
+                        <field name="name"/>
+                        <field name="kode_tipe"/>
+                        <field name="jml_kos" />
+                        <field name="rukos_ids" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- rukosme.kelompokbarang action window -->
+    <record id="rukosme_tiperukos_action" model="ir.actions.act_window">
+        <field name="name">Tipe Rukos</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">rukosme.tiperukos</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="rukosme_tiperukos_menu_act"
+        name="Tipe Rukos"
+        parent="rukosme_rukos_menu_categ"
+        action="rukosme_tiperukos_action"
+        sequence="20"/>
+
+</odoo>

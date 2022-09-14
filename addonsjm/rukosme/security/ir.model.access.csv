@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_rukosme_kos,access.rukosme.kos,model_rukosme_kos,,1,1,1,1
+access_rukosme_tiperukos,access.rukosme.tiperukos,model_rukosme_tiperukos,,1,1,1,1
+access_rukosme_penyewaan,access.rukosme.penyewaan,model_rukosme_penyewaan,,1,1,1,1
+access_rukosme_detailpenyewaan,access.rukosme.detailpenyewaan,model_rukosme_detailpenyewaan,,1,1,1,1

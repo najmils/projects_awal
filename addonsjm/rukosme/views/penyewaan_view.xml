@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="rukosme_penyewaan_view_tree" model="ir.ui.view">
+        <field name="name">List Penyewaan</field>
+        <field name="model">rukosme.penyewaan</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="nama_penyewa" />
+                <field name="tgl_bayar" />
+                <field name="tgl_expired" />
+                <field name="total_bayar" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="rukosme_penyewaan_view_form" model="ir.ui.view">
+        <field name="name">Form Penyewaan</field>
+        <field name="model">rukosme.penyewaan</field>
+        <field name="arch" type="xml">
+            <form string="Form penyewaan">
+                <header>
+                        <button name="action_confirm" type="object" string="Confirm" class="btn btn-primary"/>
+                        <button name="action_done" type="object" string="Done" />
+                        <button name="action_canceled" type="object" string="Canceled" class="btn btn-warning"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done,canceled"  />
+                </header>
+                <sheet>
+                    <group>
+                        <field name="nama_penyewa" />
+                        <field name="tgl_bayar" />
+                        <field name="tgl_expired" />
+                        <field name="total_bayar" />
+                    </group>
+                    <group name="daftarkos" string="Daftar Kos">
+                        <field name="detailpenyewaan_ids">
+                            <tree>
+                                <field name="kamarkosmu" />
+                                <field name="harga_satuan" />
+                                <field name="jml_jaminan" />
+                                <field name="qty" />
+                                <field name="subtotal" />
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="rukosme_penyewaan_action" model="ir.actions.act_window">
+        <field name="name">penyewaan</field>
+        <field name="res_model">rukosme.penyewaan</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="penyewaan_view_menu_act"
+        name="Penyewaan"
+        action="rukosme_penyewaan_action"
+        parent="rukosme_transaksi_menu_categ"
+        sequence="10"/>
+
+</odoo>

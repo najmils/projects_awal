@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    
+    <!-- njm.barang tree view -->
+    <record id="njm_barang_view_tree" model="ir.ui.view">
+        <field name="name">Daftar Barang</field>
+        <field name="model">njm.barang</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name" />
+                <field name="harga_beli" />
+                <field name="harga_jual" />
+                <field name="kelompokbarang_id" />
+                <field name="supplier_id" />
+                <!-- 01 Sept 2022 sesi 2 -->
+                <field name="stok" />
+                <!-- akhir 01 Sept 2022 sesi 2 -->
+            </tree>
+        </field>
+    </record>
+
+    <!-- njm.barang form view -->
+    <record id="njm_barang_view_form" model="ir.ui.view">
+        <field name="name">Form Barang</field>
+        <field name="model">njm.barang</field>
+        <field name="arch" type="xml">
+            <form string="Barang">
+                <sheet>
+                    <group name="Barang" string="Barang">
+                        <!-- Add your fields here -->
+                        <field name="name" />
+                        <field name="harga_beli" />
+                        <field name="harga_jual" />
+                        <!-- 01 Sept 2022 sesi 2 -->
+                        <field name="stok" />
+                        <!-- akhir 01 Sept 2022 sesi 2 -->
+                    </group>
+
+                    <group name="Kelompok Barang" string="Kelompok Barang">
+                        <field name="kelompokbarang_id" />
+                    </group>
+
+                    <group name="supplier" string="Supplier">
+                        <field name="supplier_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- njm.barang action window -->
+    <record id="njm_barang_action" model="ir.actions.act_window">
+        <field name="name">Daftar Barang</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">njm.barang</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem
+        id="njm_barang_menu_act"
+        name="Daftar Barang"
+        parent="njm_barang_menu_categ"
+        action="njm_barang_action"
+        sequence="20"/>
+
+</odoo>

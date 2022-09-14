@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="rukosme_penjaga_view_tree" model="ir.ui.view">
+        <field name="name">Keterangan penjaga</field>
+        <field name="model">rukosme.penjaga</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="id_penjaga" />
+                <field name="name" />
+                <field name="ktp" />
+                <field name="alamat" />
+                <field name="tgl_lahir" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="rukosme_penjaga_view_form" model="ir.ui.view">
+        <field name="name">Form penjaga</field>
+        <field name="model">rukosme.penjaga</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="id_penjaga" />
+                        <field name="name" />
+                        <field name="ktp" />
+                        <field name="alamat" />
+                        <field name="tgl_lahir" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="rukosme_penjaga_action" model="ir.actions.act_window">
+        <field name="name">penjaga</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">rukosme.penjaga</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="rukosme_sdm_menu_act"
+        name="Penjaga"
+        action="rukosme_penjaga_action"
+        parent="rukosme_orang_menu"
+        sequence="30"/>
+
+</odoo>
+

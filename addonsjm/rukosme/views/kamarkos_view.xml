@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="rukosme_kamarkos_view_tree" model="ir.ui.view">
+        <field name="name">rukosme.kamarkos.view.tree</field>
+        <field name="model">rukosme.kamarkos</field>
+        <field name="arch" type="xml">
+            <tree string="Daftar Kamar Kos">
+                <field name="id_kamar" />
+                <field name="kos_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="rukosme_kamarkos_view_form" model="ir.ui.view">
+        <field name="name">rukosme.kamarkos.view.form</field>
+        <field name="model">rukosme.kamarkos</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <field name="id_kamar" />
+                    <group name="kos" string="Daftar Kos">
+                        <field name="kos_id" />  
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="rukosme_kamarkos_action" model="ir.actions.act_window">
+        <field name="name">Kamar Kos</field>
+        <field name="res_model">rukosme.kamarkos</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            
+        </field>
+    </record>
+
+    <menuitem
+        id="rukosme_kamarkos_menu"
+        name="Kamar Kos"
+        action="rukosme_kamarkos_action"
+        parent="rukosme_rukos_menu_categ"
+        sequence="30"/>
+
+</odoo>

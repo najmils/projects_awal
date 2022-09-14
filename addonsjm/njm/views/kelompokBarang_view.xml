@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- njm.kelompokbarang tree view -->
+    <record id="njm_kelompokbarang_view_tree" model="ir.ui.view">
+        <field name="name">njm.kelompokbarang.view.tree</field>
+        <field name="model">njm.kelompokbarang</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="kode_kelompok"/>
+                <field name="kode_rak"/>
+
+				<!-- Perubahannya di sini 30-08-2022 -->
+                <field name="jml_item" />
+                <field name="daftar"></field>
+				<!-- Akhir perubahannya di sini 30-08-2022  -->
+            </tree>
+        </field>
+    </record>
+
+    <!-- njm.kelompokbarang form view -->
+    <record id="njm_kelompokbarang" model="ir.ui.view">
+        <field name="name">njm.kelompokbarang.view.form</field>
+        <field name="model">njm.kelompokbarang</field>
+        <field name="arch" type="xml">
+            <form string="Kelompok Barang">
+                <sheet>
+                    <group name="Kelompok" string="Posisi Kelompok">
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="kode_kelompok"/>
+						<!-- Perubahannya di sini 30-08-2022  -->
+                        <field name="jml_item" />
+						<!-- Akhir perubahannya di sini 30-08-2022  -->
+                    </group>
+
+                    <group name="Rak" string="Posisi Barang">
+                        <field name="kode_rak"/>
+                        <field name="barang_ids" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- njm.kelompokbarang action window -->
+    <record id="njm_kelompokbarang_action" model="ir.actions.act_window">
+        <field name="name">Kelompok Barang</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">njm.kelompokbarang</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="njm_kelompokbarang_menu_act"
+        name="Kelompok Barang"
+        parent="njm_barang_menu_categ"
+        action="njm_kelompokbarang_action"
+        sequence="10"/>
+
+</odoo>

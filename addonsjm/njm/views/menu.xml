@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+    <menuitem
+        id="njm_menu_root"
+        name="NJM Mart"
+        sequence="10"/>
+
+    <!-- This Menu Item Must have a parent -->
+    <menuitem
+        id="njm_barang_menu_categ"
+        name="Barang"
+        parent="njm_menu_root"
+        sequence="10"/>
+
+    <!-- Lanjutan 31 Aug 2022 sesi 1 -->
+    <menuitem
+        id="njm_pegawai_menu_categ"
+        name="Pegawai"
+        parent="njm_menu_root"
+        sequence="20"/>
+
+    <!-- Lanjutan 01 Sept 2022 -->
+    <!-- This Menu Item Must have a parent -->
+    <menuitem
+        id="njm_transaksi_menu_categ"
+        name="Transaksi"
+        parent="njm_menu_root"
+        sequence="42"/>
+</odoo>

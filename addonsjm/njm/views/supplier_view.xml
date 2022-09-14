@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="njm_supplier_view_tree" model="ir.ui.view">
+        <field name="name">Daftar Supplier</field>
+        <field name="model">njm.supplier</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="alamat" />
+                <field name="no_telp" />
+                <field name="barang_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="njm_supplier_view_form" model="ir.ui.view">
+        <field name="name">Form Supplier</field>
+        <field name="model">njm.supplier</field>
+        <field name="arch" type="xml">
+            <form string="Supplier">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="alamat" />
+                        <field name="no_telp" />
+                    </group>
+                    <group name="barang" string="Barang">
+                        <field name="barang_id" />
+                        <!-- lanjut buat grup juga di barang_view.xml (dengan name supplier) -->
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <!-- njm.supplier action window -->
+    <record id="njm_supplier_action" model="ir.actions.act_window">
+        <field name="name">Supplier</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">njm.supplier</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="njm_supplier_menu_act"
+        name="Supplier"
+        action="njm_supplier_action"
+        parent="njm_menu_root"
+        sequence="40"/>
+<!-- ada lanjutan di barang_view.xml (<field name="supplier_id" />) 
+tambahkan juga di securitinya JANLUP!!-->
+</odoo>

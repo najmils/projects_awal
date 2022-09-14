@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- 06 Sept 2022 sesi 1 -->
+
+    <!-- nambahin tombol print xlsx di submenu daftar supplier -->
+    <record id="report_supplier_xlsx" model="ir.actions.report">
+        <field name="name">Supplier Excel</field>
+        <field name="model">njm.supplier</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">njm.report_supplier_xlsx</field> <!-- nama modul-->
+        <field name="report_file">njm.report_supplier_xlsx</field>
+        <field name="binding_model_id" ref="model_njm_supplier"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_penjualan_pdf" model="ir.actions.report">
+        <field name="name">Faktu PDF</field>
+        <field name="model">njm.penjualan</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">njm.report_penjualan_pdf</field> <!-- nama modul-->
+        <field name="report_file">njm.report_penjualan_pdf</field>
+        <field name="binding_model_id" ref="model_njm_penjualan"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- lanjut nambahin di _manifest_.py_ dan daftarsupplierexcel.py -->
+
+</odoo>
